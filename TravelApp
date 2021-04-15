@@ -1,0 +1,34 @@
+package flightApp;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner; 
+
+public class TravelApp {
+	public static void main(String[] args) {
+		/* Write code to call Flight constructor and Flight class setter methods*/
+		Flight flight = new Flight("BA1326","Indigo","India",LocalDateTime.parse("2021-04-12T09:30:15"),"USA",LocalDateTime.parse("2021-04-12T12:30:20"),true,1000,20000);
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the total number of halts during travel:");
+		int totalHalts = Integer.parseInt(sc.nextLine());
+		Hault[] halts = new Hault[totalHalts];
+		for(int i = 0; i < totalHalts; i++) {
+			Hault h = new Hault();
+			System.out.println("Enter the airport name : ");
+			h.setAirportName(sc.nextLine());
+			System.out.println("Enter the duration : ");
+			h.setDuration(Integer.parseInt(sc.nextLine()));
+			halts[i] = h;
+		}
+		
+		flight.setHault(halts);
+		flight.calculateCost();
+		
+
+		FlightDetails flightDetails = new FlightDetails();
+		flightDetails.printFlightDetails(flight);
+		
+	}
+
+}

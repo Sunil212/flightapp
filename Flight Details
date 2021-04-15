@@ -1,0 +1,38 @@
+package flightApp;
+
+public class FlightDetails {
+	public void printFlightDetails(Flight flight)
+	{
+		/* Write code to print the flight information and fare break up*/
+		System.out.println("===================================================");
+		System.out.println("FLIGHT INFORMATION : ");
+		System.out.println();
+		System.out.println("Flight Number : "+flight.getFlightNumber());
+		System.out.println("Airliner : "+flight.getAirliner());
+		System.out.println("Source : "+flight.getSource());
+		System.out.println("Travel Date & Time: " + flight.getFlyDateTime());
+		System.out.println("Destination: " + flight.getDestination());
+		System.out.println("Arrival Date & Time: " + flight.getArrivalDateTime());
+		System.out.println("Travel type(Domestic: false, International: true) - " + flight.isFlyType());
+		System.out.println("---Halts---");
+		for(Hault halt:flight.getHault()) {
+			System.out.println("Airport Name : "+halt.getAirportName());
+			System.out.println("Duration :"+halt.getDuration());
+		}		
+		
+		System.out.println("===================================================");
+		System.out.println("TOTAL FARE : ");
+		System.out.println();
+		System.out.println("Base Fare : " + flight.getBaseFare());
+		System.out.println("Airport Surcharge : " + flight.getAirportSurcharge());
+		System.out.println("Fuel Cost : " + flight.getFuelCost());
+		System.out.println("International Travel Tax: " + flight.getInternationFlyTax());
+		System.out.println("Non-Friendly Country Travel Tax: " + flight.getNonFriendlyTax());
+		System.out.println("Time Tax: " + flight.getTimeTax());
+		System.out.println("Holiday Tax: " + flight.getHolidayTax());
+		System.out.println("Final fare : " + flight.getFinalCost());
+		System.out.println("===================================================");
+		
+	}
+
+}
